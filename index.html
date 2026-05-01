@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="light only" />
+<meta name="supported-color-schemes" content="light" />
+<title>Stitch Awesome — Master Tailoring & Alterations | Ridgedale, Minnetonka</title>
+<meta name="description" content="The perfect fit for your big day. Twenty years of master tailoring at Ridgedale Center — wedding gowns, suits, formalwear, and everyday alterations. Free fittings. No appointment needed." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&family=Italiana&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ivory:#f5f0e8;
+    --ivory-2:#ece4d6;
+    --cream:#faf6ef;
+    --ink:#1a1815;
+    --ink-soft:#2b2722;
+    --char:#3a342d;
+    --gold:#a8895c;
+    --gold-deep:#8a6e44;
+    --gold-soft:#d4b88a;
+    --rule:#1a1815;
+    --serif:'Cormorant Garamond', 'Times New Roman', serif;
+    --display:'Italiana', 'Cormorant Garamond', serif;
+    --sans:'Inter', -apple-system, sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:var(--serif);
+    font-weight:400;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    color-scheme:light;
+  }
+
+  /* subtle paper grain */
+  body::before{
+    content:'';
+    position:fixed;inset:0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(168,137,92,0.04) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(168,137,92,0.03) 0%, transparent 40%);
+    pointer-events:none;
+    z-index:1;
+  }
+
+  ::selection{background:var(--ink);color:var(--cream)}
+
+  /* ============ NAV ============ */
+  nav{
+    position:fixed;top:0;left:0;right:0;
+    padding:22px 48px;
+    display:flex;justify-content:space-between;align-items:center;
+    z-index:100;
+    background:rgba(250,246,239,0.85);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(26,24,21,0.08);
+    transition:padding .3s ease;
+  }
+  nav .brand{
+    font-family:var(--display);
+    font-size:22px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--ink);
+    text-decoration:none;
+  }
+  nav .brand span{color:var(--gold-deep)}
+  nav ul{
+    list-style:none;display:flex;gap:38px;
+  }
+  nav ul a{
+    font-family:var(--sans);
+    font-size:11px;
+    font-weight:400;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    text-decoration:none;
+    transition:color .3s ease;
+    position:relative;
+  }
+  nav ul a::after{
+    content:'';position:absolute;bottom:-6px;left:0;
+    width:0;height:1px;background:var(--gold-deep);
+    transition:width .35s ease;
+  }
+  nav ul a:hover{color:var(--gold-deep)}
+  nav ul a:hover::after{width:100%}
+  nav .nav-cta{
+    font-family:var(--sans);
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--cream);
+    background:var(--ink);
+    padding:11px 22px;
+    text-decoration:none;
+    transition:background .3s ease;
+    white-space:nowrap;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+  }
+  nav .nav-cta:hover{background:var(--gold-deep)}
+  nav .nav-cta .cta-icon{display:none;width:16px;height:16px}
+  nav .nav-cta .cta-text{display:inline}
+
+  @media(max-width:840px){
+    nav{padding:14px 18px}
+    nav ul{display:none}
+    nav .brand{font-size:18px;letter-spacing:0.14em}
+    nav .nav-cta{
+      padding:10px 12px;
+      font-size:0;
+    }
+    nav .nav-cta .cta-icon{display:inline-block}
+    nav .nav-cta .cta-text{display:none}
+  }
+  @media(max-width:380px){
+    nav{padding:12px 14px}
+    nav .brand{font-size:16px}
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    min-height:100vh;
+    padding:140px 48px 80px;
+    position:relative;
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:60px;
+    align-items:center;
+    z-index:2;
+  }
+  .hero-text{position:relative}
+  .hero .eyebrow{
+    font-family:var(--sans);
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:0.35em;
+    text-transform:uppercase;
+    color:var(--ink);
+    margin-bottom:32px;
+    display:flex;align-items:center;gap:14px;
+    opacity:0;animation:fadeUp 1s .2s forwards;
+  }
+  .hero .eyebrow::before{
+    content:'';width:40px;height:1px;background:var(--ink);
+  }
+  .hero h1{
+    font-family:var(--display);
+    font-size:clamp(56px, 8vw, 124px);
+    font-weight:400;
+    line-height:0.95;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+    margin-bottom:36px;
+    opacity:0;animation:fadeUp 1.1s .4s forwards;
+  }
+  .hero h1 em{
+    font-family:var(--serif);
+    font-style:italic;
+    font-weight:300;
+    color:var(--gold-deep);
+    display:block;
+    font-size:0.85em;
+    margin-top:6px;
+  }
+  .hero .lede{
+    font-size:20px;
+    font-weight:300;
+    line-height:1.55;
+    color:var(--char);
+    max-width:480px;
+    margin-bottom:44px;
+    opacity:0;animation:fadeUp 1.1s .6s forwards;
+  }
+  .hero-actions{
+    display:flex;gap:18px;align-items:center;
+    opacity:0;animation:fadeUp 1.1s .8s forwards;
+  }
+  .btn-primary{
+    font-family:var(--sans);
+    font-size:12px;
+    font-weight:500;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--cream);
+    background:var(--ink);
+    padding:18px 32px;
+    text-decoration:none;
+    transition:all .3s ease;
+    display:inline-block;
+    border:1px solid var(--ink);
+  }
+  .btn-primary:hover{
+    background:var(--gold-deep);
+    border-color:var(--gold-deep);
+    transform:translateY(-2px);
+  }
+  .btn-ghost{
+    font-family:var(--sans);
+    font-size:12px;
+    font-weight:500;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--ink);
+    padding:18px 0;
+    text-decoration:none;
+    border-bottom:1px solid var(--ink);
+    transition:color .3s ease, border-color .3s ease;
+  }
+  .btn-ghost:hover{color:var(--gold-deep);border-color:var(--gold-deep)}
+
+  .hero-credentials{
+    margin-top:64px;
+    display:flex;gap:48px;flex-wrap:wrap;
+    opacity:0;animation:fadeUp 1.1s 1s forwards;
+  }
+  .cred{
+    display:flex;flex-direction:column;
+  }
+  .cred .num{
+    font-family:var(--display);
+    font-size:42px;
+    color:var(--gold-deep);
+    line-height:1;
+    margin-bottom:6px;
+  }
+  .cred .lbl{
+    font-family:var(--sans);
+    font-size:10px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--char);
+  }
+
+  /* hero visual — gown silhouette built from CSS */
+  .hero-visual{
+    position:relative;
+    aspect-ratio:3/4;
+    max-height:78vh;
+    opacity:0;animation:fadeIn 1.4s .9s forwards;
+  }
+  .visual-frame{
+    position:absolute;inset:0;
+    background:
+      linear-gradient(135deg, rgba(168,137,92,0.08), rgba(212,184,138,0.18)),
+      var(--ivory-2);
+    overflow:hidden;
+  }
+  .visual-frame::before{
+    content:'';position:absolute;inset:18px;
+    border:1px solid rgba(168,137,92,0.4);
+    z-index:2;
+    pointer-events:none;
+  }
+  /* gown silhouette */
+  .gown{
+    position:absolute;left:50%;top:8%;
+    transform:translateX(-50%);
+    width:62%;height:88%;
+  }
+  .gown svg{width:100%;height:100%;display:block}
+  .visual-tag{
+    position:absolute;bottom:32px;left:32px;
+    font-family:var(--sans);
+    font-size:10px;
+    letter-spacing:0.3em;
+    text-transform:uppercase;
+    color:var(--ink);
+    z-index:3;
+    background:var(--cream);
+    padding:8px 14px;
+  }
+  .visual-tag span{color:var(--gold-deep)}
+  .visual-corner{
+    position:absolute;top:32px;right:32px;
+    font-family:var(--display);
+    font-size:32px;
+    color:var(--gold-deep);
+    z-index:3;
+    line-height:1;
+  }
+  .visual-corner small{
+    display:block;font-family:var(--sans);
+    font-size:9px;letter-spacing:0.3em;
+    text-transform:uppercase;color:var(--char);
+    margin-top:4px;
+  }
+
+  @media(max-width:840px){
+    .hero{
+      grid-template-columns:1fr;
+      padding:120px 22px 60px;
+      gap:48px;
+    }
+    .hero-visual{max-height:60vh;order:-1}
+    .hero .lede{font-size:17px}
+    .hero-credentials{gap:32px;margin-top:40px}
+    .cred .num{font-size:34px}
+  }
+
+  /* ============ MARQUEE BAR ============ */
+  .marquee{
+    background:var(--ink);
+    color:var(--ivory);
+    padding:18px 0;
+    overflow:hidden;
+    position:relative;
+    z-index:2;
+  }
+  .marquee-track{
+    display:flex;
+    gap:64px;
+    white-space:nowrap;
+    animation:scroll 40s linear infinite;
+    font-family:var(--display);
+    font-size:18px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+  }
+  .marquee-track span{display:inline-flex;align-items:center;gap:64px}
+  .marquee-track span::after{
+    content:'✦';color:var(--gold-soft);font-size:14px;
+  }
+  @keyframes scroll{
+    from{transform:translateX(0)}
+    to{transform:translateX(-50%)}
+  }
+
+  /* ============ SECTIONS ============ */
+  section{position:relative;z-index:2}
+
+  .section-pad{
+    padding:140px 48px;
+  }
+  @media(max-width:840px){
+    .section-pad{padding:90px 22px}
+  }
+
+  .section-head{
+    margin-bottom:80px;
+    max-width:820px;
+  }
+  .section-eyebrow{
+    font-family:var(--sans);
+    font-size:11px;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    color:var(--gold-deep);
+    margin-bottom:24px;
+    display:flex;align-items:center;gap:14px;
+  }
+  .section-eyebrow::before{
+    content:'';width:32px;height:1px;background:var(--gold-deep);
+  }
+  .section-title{
+    font-family:var(--display);
+    font-size:clamp(40px, 5.5vw, 76px);
+    font-weight:400;
+    line-height:1;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+    margin-bottom:24px;
+  }
+  .section-title em{
+    font-family:var(--serif);font-style:italic;
+    font-weight:300;color:var(--gold-deep);
+  }
+  .section-sub{
+    font-size:19px;
+    font-weight:300;
+    line-height:1.55;
+    color:var(--char);
+    max-width:580px;
+  }
+
+  /* ============ STORY ============ */
+  .story{
+    background:var(--cream);
+  }
+  .story-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:center;
+  }
+  .story-text p{
+    font-size:19px;
+    font-weight:300;
+    line-height:1.65;
+    color:var(--char);
+    margin-bottom:24px;
+  }
+  .story-text p.lead{
+    font-family:var(--display);
+    font-size:32px;
+    line-height:1.25;
+    color:var(--ink);
+    margin-bottom:36px;
+  }
+  .story-signature{
+    margin-top:36px;
+    padding-top:32px;
+    border-top:1px solid rgba(26,24,21,0.15);
+    display:flex;align-items:center;gap:16px;
+  }
+  .sig-mark{
+    font-family:var(--display);
+    font-size:38px;
+    color:var(--gold-deep);
+    line-height:1;
+  }
+  .sig-info{
+    font-family:var(--sans);
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--char);
+    line-height:1.7;
+  }
+  .sig-info strong{color:var(--ink);font-weight:500}
+
+  .story-visual{
+    position:relative;
+    aspect-ratio:4/5;
+    background:var(--ivory-2);
+    overflow:hidden;
+  }
+  .story-visual::before{
+    content:'';position:absolute;inset:18px;
+    border:1px solid rgba(168,137,92,0.5);
+    z-index:2;pointer-events:none;
+  }
+  .story-visual::after{
+    content:'EST. 20+ YEARS';
+    position:absolute;top:32px;left:32px;
+    font-family:var(--sans);
+    font-size:10px;letter-spacing:0.3em;
+    color:var(--ink);background:var(--cream);
+    padding:8px 14px;z-index:3;
+  }
+  .stitch-pattern{
+    position:absolute;inset:0;
+    background-image:
+      linear-gradient(45deg, transparent 48%, rgba(168,137,92,0.15) 48%, rgba(168,137,92,0.15) 52%, transparent 52%),
+      linear-gradient(-45deg, transparent 48%, rgba(168,137,92,0.15) 48%, rgba(168,137,92,0.15) 52%, transparent 52%);
+    background-size:24px 24px;
+  }
+  .story-quote{
+    position:absolute;
+    bottom:48px;left:32px;right:32px;
+    font-family:var(--display);
+    font-size:28px;
+    line-height:1.2;
+    color:var(--ink);
+    z-index:3;
+    background:var(--cream);
+    padding:24px;
+  }
+  .story-quote::before{
+    content:'"';
+    position:absolute;top:-12px;left:18px;
+    font-family:var(--display);
+    font-size:80px;color:var(--gold-deep);line-height:1;
+  }
+
+  @media(max-width:840px){
+    .story-grid{grid-template-columns:1fr;gap:48px}
+    .story-text p.lead{font-size:24px}
+    .story-text p{font-size:17px}
+  }
+
+  /* ============ SERVICES ============ */
+  .services{
+    background:var(--ink);
+    color:var(--ivory);
+  }
+  .services .section-title{color:var(--ivory)}
+  .services .section-eyebrow{color:var(--gold-soft)}
+  .services .section-eyebrow::before{background:var(--gold-soft)}
+  .services .section-sub{color:var(--ivory-2);opacity:0.85}
+
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:0;
+    border-top:1px solid rgba(212,184,138,0.2);
+  }
+  .service-card{
+    padding:48px 36px;
+    border-right:1px solid rgba(212,184,138,0.2);
+    border-bottom:1px solid rgba(212,184,138,0.2);
+    transition:background .4s ease;
+    position:relative;
+    cursor:default;
+  }
+  .service-card:nth-child(3n){border-right:none}
+  .service-card:hover{background:rgba(212,184,138,0.06)}
+  .service-num{
+    font-family:var(--sans);
+    font-size:11px;
+    letter-spacing:0.25em;
+    color:var(--gold-soft);
+    margin-bottom:24px;
+  }
+  .service-name{
+    font-family:var(--display);
+    font-size:32px;
+    line-height:1.1;
+    color:var(--ivory);
+    margin-bottom:14px;
+  }
+  .service-desc{
+    font-family:var(--sans);
+    font-size:13px;
+    font-weight:300;
+    line-height:1.65;
+    color:var(--ivory-2);
+    opacity:0.75;
+  }
+  .service-card .arrow{
+    position:absolute;bottom:48px;right:36px;
+    width:24px;height:24px;
+    opacity:0;
+    transition:opacity .3s ease, transform .3s ease;
+    color:var(--gold-soft);
+  }
+  .service-card:hover .arrow{
+    opacity:1;
+    transform:translate(4px,-4px);
+  }
+
+  @media(max-width:840px){
+    .service-grid{grid-template-columns:1fr}
+    .service-card{border-right:none}
+    .service-card:nth-child(3n){border-right:none}
+    .service-name{font-size:26px}
+  }
+  @media(min-width:841px) and (max-width:1100px){
+    .service-grid{grid-template-columns:repeat(2, 1fr)}
+    .service-card:nth-child(3n){border-right:1px solid rgba(212,184,138,0.2)}
+    .service-card:nth-child(2n){border-right:none}
+  }
+
+  /* ============ SPECIALTY (BIG DAY) ============ */
+  .bigday{
+    background:var(--ivory);
+    overflow:hidden;
+  }
+  .bigday-grid{
+    display:grid;
+    grid-template-columns:1fr 1.3fr;
+    gap:80px;
+    align-items:center;
+  }
+  .bigday-visual{
+    position:relative;
+    aspect-ratio:3/4;
+    background:linear-gradient(180deg, var(--cream), var(--ivory-2));
+    overflow:hidden;
+  }
+  .bigday-visual::before{
+    content:'';position:absolute;inset:20px;
+    border:1px solid rgba(168,137,92,0.4);z-index:2;
+  }
+  .bigday-visual svg{
+    width:80%;height:80%;
+    position:absolute;top:50%;left:50%;
+    transform:translate(-50%,-50%);
+  }
+  .bigday-tag{
+    position:absolute;
+    top:32px;right:32px;
+    z-index:3;
+    text-align:right;
+  }
+  .bigday-tag .roman{
+    font-family:var(--display);
+    font-size:48px;color:var(--gold-deep);
+    line-height:1;
+  }
+  .bigday-tag .lbl{
+    font-family:var(--sans);
+    font-size:9px;letter-spacing:0.3em;
+    text-transform:uppercase;
+    color:var(--ink);margin-top:4px;
+  }
+
+  .bigday-text h2{
+    font-family:var(--display);
+    font-size:clamp(40px, 5.5vw, 72px);
+    line-height:1;
+    margin-bottom:32px;
+    color:var(--ink);
+  }
+  .bigday-text h2 em{
+    font-family:var(--serif);font-style:italic;
+    font-weight:300;color:var(--gold-deep);
+  }
+  .bigday-text p{
+    font-size:19px;font-weight:300;line-height:1.65;
+    color:var(--char);margin-bottom:24px;
+  }
+  .bigday-list{
+    list-style:none;
+    margin:36px 0;
+    border-top:1px solid rgba(26,24,21,0.12);
+  }
+  .bigday-list li{
+    padding:18px 0;
+    border-bottom:1px solid rgba(26,24,21,0.12);
+    display:flex;align-items:center;gap:16px;
+    font-family:var(--display);
+    font-size:22px;
+    color:var(--ink);
+  }
+  .bigday-list li::before{
+    content:'';display:inline-block;
+    width:6px;height:6px;
+    background:var(--gold-deep);
+    transform:rotate(45deg);
+  }
+  .bigday-list li small{
+    margin-left:auto;
+    font-family:var(--sans);
+    font-size:11px;letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--char);
+    font-weight:400;
+  }
+
+  @media(max-width:840px){
+    .bigday-grid{grid-template-columns:1fr;gap:48px}
+    .bigday-list li{font-size:18px}
+  }
+
+  /* ============ PROCESS ============ */
+  .process{background:var(--cream)}
+  .process-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:48px;
+    margin-top:60px;
+  }
+  .step{
+    position:relative;
+  }
+  .step-num{
+    font-family:var(--display);
+    font-size:96px;
+    line-height:1;
+    color:var(--gold-deep);
+    margin-bottom:24px;
+    opacity:0.85;
+  }
+  .step h4{
+    font-family:var(--display);
+    font-size:26px;
+    color:var(--ink);
+    margin-bottom:14px;
+    font-weight:400;
+  }
+  .step p{
+    font-size:15px;
+    font-weight:300;
+    line-height:1.6;
+    color:var(--char);
+  }
+  @media(max-width:840px){
+    .process-grid{grid-template-columns:1fr 1fr;gap:32px}
+    .step-num{font-size:72px}
+  }
+
+  /* ============ TESTIMONIALS ============ */
+  .testimonials{
+    background:var(--ivory);
+    position:relative;
+  }
+  .testimonials .section-head{margin-bottom:60px}
+
+  .review-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:32px;
+  }
+  .review{
+    background:var(--cream);
+    padding:48px 40px;
+    border:1px solid rgba(26,24,21,0.08);
+    position:relative;
+    transition:transform .4s ease, box-shadow .4s ease;
+  }
+  .review:hover{
+    transform:translateY(-4px);
+    box-shadow:0 20px 40px -20px rgba(26,24,21,0.15);
+  }
+  .review-stars{
+    color:var(--gold-deep);
+    font-size:14px;
+    letter-spacing:4px;
+    margin-bottom:24px;
+  }
+  .review-text{
+    font-family:var(--display);
+    font-size:24px;
+    line-height:1.35;
+    color:var(--ink);
+    margin-bottom:32px;
+    font-weight:400;
+  }
+  .review-meta{
+    display:flex;align-items:center;gap:14px;
+    padding-top:24px;
+    border-top:1px solid rgba(26,24,21,0.1);
+  }
+  .review-avatar{
+    width:44px;height:44px;
+    background:var(--ink);
+    color:var(--cream);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--display);
+    font-size:18px;
+    border-radius:50%;
+  }
+  .review-info{
+    font-family:var(--sans);
+    font-size:12px;
+    color:var(--char);
+    line-height:1.5;
+  }
+  .review-info strong{
+    color:var(--ink);
+    display:block;
+    font-weight:500;
+    letter-spacing:0.05em;
+    margin-bottom:2px;
+  }
+  .review-source{
+    margin-left:auto;
+    font-family:var(--sans);
+    font-size:10px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--gold-deep);
+  }
+
+  @media(max-width:840px){
+    .review-grid{grid-template-columns:1fr}
+    .review{padding:36px 28px}
+    .review-text{font-size:20px}
+  }
+
+  /* ============ VISIT ============ */
+  .visit{
+    background:var(--ink);
+    color:var(--ivory);
+  }
+  .visit .section-title{color:var(--ivory)}
+  .visit .section-eyebrow{color:var(--gold-soft)}
+  .visit .section-eyebrow::before{background:var(--gold-soft)}
+
+  .visit-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:start;
+  }
+
+  .visit-info{
+    font-family:var(--serif);
+  }
+  .visit-info h3{
+    font-family:var(--display);
+    font-size:32px;
+    color:var(--ivory);
+    margin-bottom:8px;
+    font-weight:400;
+  }
+  .visit-info .ridgedale{
+    font-family:var(--sans);
+    font-size:11px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--gold-soft);
+    margin-bottom:32px;
+  }
+  .visit-block{
+    padding:24px 0;
+    border-bottom:1px solid rgba(212,184,138,0.2);
+    display:grid;
+    grid-template-columns:140px 1fr;
+    gap:24px;
+    align-items:start;
+  }
+  .visit-block:first-of-type{border-top:1px solid rgba(212,184,138,0.2)}
+  .visit-block .label{
+    font-family:var(--sans);
+    font-size:10px;
+    letter-spacing:0.3em;
+    text-transform:uppercase;
+    color:var(--gold-soft);
+    padding-top:4px;
+  }
+  .visit-block .content{
+    font-size:18px;
+    font-weight:300;
+    color:var(--ivory);
+    line-height:1.55;
+  }
+  .visit-block .content a{
+    color:var(--ivory);
+    text-decoration:none;
+    border-bottom:1px solid rgba(212,184,138,0.4);
+    transition:border-color .3s ease;
+  }
+  .visit-block .content a:hover{border-bottom-color:var(--gold-soft)}
+  .visit-block .content .day{display:flex;justify-content:space-between;padding:3px 0;font-size:15px}
+  .visit-block .content .day.today{color:var(--gold-soft);font-weight:500}
+
+  .visit-cta{
+    margin-top:48px;
+    padding:36px;
+    background:rgba(212,184,138,0.08);
+    border:1px solid rgba(212,184,138,0.25);
+    text-align:center;
+  }
+  .visit-cta p{
+    font-family:var(--display);
+    font-size:24px;
+    color:var(--ivory);
+    margin-bottom:24px;
+    line-height:1.3;
+  }
+  .visit-cta .btn-primary{
+    background:var(--gold-deep);
+    border-color:var(--gold-deep);
+    color:var(--ink);
+  }
+  .visit-cta .btn-primary:hover{
+    background:var(--gold-soft);
+    border-color:var(--gold-soft);
+  }
+
+  /* simple map facsimile */
+  .map-frame{
+    aspect-ratio:1/1;
+    background:
+      linear-gradient(135deg, rgba(212,184,138,0.06), transparent),
+      var(--ink-soft);
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(212,184,138,0.2);
+  }
+  .map-grid{
+    position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(212,184,138,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(212,184,138,0.06) 1px, transparent 1px);
+    background-size:32px 32px;
+  }
+  .map-roads{
+    position:absolute;inset:0;
+  }
+  .map-roads::before,.map-roads::after{
+    content:'';position:absolute;background:rgba(212,184,138,0.18);
+  }
+  .map-roads::before{top:42%;left:0;right:0;height:18px;transform:rotate(-3deg)}
+  .map-roads::after{top:0;bottom:0;left:38%;width:14px;transform:rotate(2deg)}
+  .map-pin{
+    position:absolute;
+    top:42%;left:38%;
+    transform:translate(-50%,-50%);
+    z-index:2;
+  }
+  .pin-dot{
+    width:18px;height:18px;
+    background:var(--gold-soft);
+    border-radius:50%;
+    border:3px solid var(--ink);
+    box-shadow:0 0 0 8px rgba(212,184,138,0.18);
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{box-shadow:0 0 0 8px rgba(212,184,138,0.18)}
+    50%{box-shadow:0 0 0 18px rgba(212,184,138,0.05)}
+  }
+  .pin-label{
+    position:absolute;
+    top:-50px;left:50%;
+    transform:translateX(-50%);
+    font-family:var(--display);
+    font-size:18px;
+    color:var(--gold-soft);
+    white-space:nowrap;
+    background:var(--ink);
+    padding:6px 14px;
+    border:1px solid rgba(212,184,138,0.3);
+  }
+  .pin-label::after{
+    content:'';position:absolute;
+    bottom:-6px;left:50%;transform:translateX(-50%) rotate(45deg);
+    width:10px;height:10px;
+    background:var(--ink);
+    border-right:1px solid rgba(212,184,138,0.3);
+    border-bottom:1px solid rgba(212,184,138,0.3);
+  }
+  .map-corner{
+    position:absolute;bottom:18px;left:18px;
+    font-family:var(--sans);
+    font-size:10px;letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--gold-soft);
+    opacity:0.7;
+  }
+
+  @media(max-width:840px){
+    .visit-grid{grid-template-columns:1fr;gap:48px}
+    .visit-block{grid-template-columns:1fr;gap:8px}
+    .visit-block .label{padding-top:0}
+  }
+
+  /* ============ FOOTER ============ */
+  footer{
+    background:var(--ink);
+    color:var(--ivory);
+    padding:60px 48px 40px;
+    border-top:1px solid rgba(212,184,138,0.15);
+    position:relative;z-index:2;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr;
+    gap:48px;
+    padding-bottom:40px;
+    border-bottom:1px solid rgba(212,184,138,0.15);
+  }
+  .footer-brand{
+    font-family:var(--display);
+    font-size:36px;
+    color:var(--ivory);
+    letter-spacing:0.1em;
+    line-height:1.1;
+    margin-bottom:14px;
+  }
+  .footer-brand span{color:var(--gold-soft)}
+  .footer-tagline{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:16px;
+    color:var(--ivory-2);
+    opacity:0.7;
+    max-width:340px;
+    line-height:1.5;
+  }
+  .footer-col h5{
+    font-family:var(--sans);
+    font-size:11px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--gold-soft);
+    margin-bottom:18px;
+    font-weight:500;
+  }
+  .footer-col ul{list-style:none}
+  .footer-col li{
+    font-family:var(--serif);
+    font-size:16px;
+    color:var(--ivory-2);
+    line-height:1.9;
+  }
+  .footer-col a{
+    color:var(--ivory-2);
+    text-decoration:none;
+    transition:color .3s ease;
+  }
+  .footer-col a:hover{color:var(--gold-soft)}
+  .footer-bottom{
+    margin-top:32px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:var(--sans);
+    font-size:11px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--ivory-2);
+    opacity:0.55;
+  }
+  @media(max-width:840px){
+    footer{padding:48px 22px 32px}
+    .footer-grid{grid-template-columns:1fr;gap:32px}
+    .footer-bottom{flex-direction:column;gap:12px;text-align:center}
+  }
+
+  /* ============ ANIMATIONS ============ */
+  @keyframes fadeUp{
+    from{opacity:0;transform:translateY(24px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+  @keyframes fadeIn{
+    from{opacity:0}
+    to{opacity:1}
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(32px);
+    transition:opacity 1s ease, transform 1s ease;
+  }
+  .reveal.in{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<nav>
+  <a href="#" class="brand">Stitch <span>Awesome</span></a>
+  <ul>
+    <li><a href="#story">The Atelier</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#bigday">Wedding & Formal</a></li>
+    <li><a href="#testimonials">Praise</a></li>
+    <li><a href="#visit">Visit</a></li>
+  </ul>
+  <a href="tel:9522459400" class="nav-cta" aria-label="Call (952) 245-9400">
+    <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span class="cta-text">Call · (952) 245-9400</span>
+  </a>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="hero-text">
+    <div class="eyebrow">Master Tailoring · Ridgedale Center</div>
+    <h1>The Perfect Fit<em>for your big day.</em></h1>
+    <p class="lede">Two decades of master tailoring, hidden inside Ridgedale Mall. Wedding gowns, sharp suits, formalwear, denim, leather — pinned, pressed, and finished by hands that have done this thousands of times.</p>
+    <div class="hero-actions">
+      <a href="#visit" class="btn-primary">Book a Free Fitting</a>
+      <a href="#services" class="btn-ghost">View Services →</a>
+    </div>
+    <div class="hero-credentials">
+      <div class="cred">
+        <div class="num">20+</div>
+        <div class="lbl">Years of Craft</div>
+      </div>
+      <div class="cred">
+        <div class="num">4.6★</div>
+        <div class="lbl">Customer Rating</div>
+      </div>
+      <div class="cred">
+        <div class="num">Same Day</div>
+        <div class="lbl">Emergency Service</div>
+      </div>
+      <div class="cred">
+        <div class="num">Free</div>
+        <div class="lbl">Fitting · No Appt.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="visual-frame">
+      <div class="visual-corner">
+        N°01
+        <small>The Bridal Edit</small>
+      </div>
+      <div class="gown">
+        <svg viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="lace" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#faf6ef" stop-opacity="0.95"/>
+              <stop offset="100%" stop-color="#ece4d6" stop-opacity="0.9"/>
+            </linearGradient>
+            <pattern id="lacePattern" width="14" height="14" patternUnits="userSpaceOnUse">
+              <circle cx="7" cy="7" r="1.2" fill="#a8895c" opacity="0.35"/>
+              <circle cx="0" cy="0" r="0.8" fill="#a8895c" opacity="0.25"/>
+              <circle cx="14" cy="14" r="0.8" fill="#a8895c" opacity="0.25"/>
+            </pattern>
+          </defs>
+          <!-- bodice -->
+          <path d="M 80 30 Q 100 18 120 30 L 124 80 Q 100 92 76 80 Z" fill="url(#lace)" stroke="#a8895c" stroke-width="0.6" opacity="0.92"/>
+          <path d="M 80 30 Q 100 18 120 30 L 124 80 Q 100 92 76 80 Z" fill="url(#lacePattern)"/>
+          <!-- waist seam -->
+          <line x1="76" y1="80" x2="124" y2="80" stroke="#a8895c" stroke-width="0.4" opacity="0.7"/>
+          <!-- skirt -->
+          <path d="M 76 80 L 124 80 L 188 270 L 12 270 Z" fill="url(#lace)" stroke="#a8895c" stroke-width="0.5" opacity="0.92"/>
+          <!-- skirt vertical drape lines -->
+          <path d="M 88 90 L 56 268" stroke="#a8895c" stroke-width="0.3" opacity="0.4" fill="none"/>
+          <path d="M 100 90 L 100 270" stroke="#a8895c" stroke-width="0.3" opacity="0.4" fill="none"/>
+          <path d="M 112 90 L 144 268" stroke="#a8895c" stroke-width="0.3" opacity="0.4" fill="none"/>
+          <!-- lace bottom hem -->
+          <path d="M 12 270 Q 30 258 50 270 Q 70 258 90 270 Q 110 258 130 270 Q 150 258 170 270 Q 185 260 188 270" stroke="#a8895c" stroke-width="0.6" fill="none" opacity="0.6"/>
+          <!-- straps -->
+          <line x1="84" y1="30" x2="80" y2="14" stroke="#a8895c" stroke-width="0.6" opacity="0.6"/>
+          <line x1="116" y1="30" x2="120" y2="14" stroke="#a8895c" stroke-width="0.6" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="visual-tag">Wedding Gowns · <span>From $185</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Wedding Gowns</span>
+    <span>Suits & Tuxedos</span>
+    <span>Bridesmaids</span>
+    <span>Hemming</span>
+    <span>Leather Repair</span>
+    <span>Same-Day Service</span>
+    <span>Denim & Jeans</span>
+    <span>Formalwear</span>
+    <span>Uniforms</span>
+    <span>Wedding Gowns</span>
+    <span>Suits & Tuxedos</span>
+    <span>Bridesmaids</span>
+    <span>Hemming</span>
+    <span>Leather Repair</span>
+    <span>Same-Day Service</span>
+    <span>Denim & Jeans</span>
+    <span>Formalwear</span>
+    <span>Uniforms</span>
+  </div>
+</div>
+
+<!-- ================= STORY ================= -->
+<section class="story section-pad" id="story">
+  <div class="story-grid">
+    <div class="story-text reveal">
+      <div class="section-eyebrow">The Atelier</div>
+      <h2 class="section-title">Born from a love<br><em>of clothes that fit.</em></h2>
+      <p class="lead">Stitch Awesome was built on a simple, stubborn idea — that everyone deserves clothes that actually fit, at prices that don't insult them.</p>
+      <p>For more than twenty years, our team of master seamstresses has reshaped wedding gowns, rescued vintage coats, taken in dream dresses, and saved countless suits the night before the big day. The work is quiet. The results aren't.</p>
+      <p>Walk in. Try it on. We'll show you exactly how it could fit — and what it would cost — before you ever commit. No appointments. No pressure. Just craft.</p>
+      <div class="story-signature">
+        <div class="sig-mark">L.V.</div>
+        <div class="sig-info">
+          <strong>Loc V.</strong>
+          Master Tailor & Owner<br>
+          Stitch Awesome · Ridgedale
+        </div>
+      </div>
+    </div>
+
+    <div class="story-visual reveal">
+      <div class="stitch-pattern"></div>
+      <div class="story-quote">
+        Pinned. Pressed.<br>Finished by hand.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="services section-pad" id="services">
+  <div class="section-head reveal">
+    <div class="section-eyebrow">What We Do</div>
+    <h2 class="section-title">Every garment.<br><em>Every fix.</em></h2>
+    <p class="section-sub">From a $15 hem to a wedding gown bustled the morning of — there is almost nothing we haven't seen, sewn, or saved.</p>
+  </div>
+
+  <div class="service-grid">
+    <div class="service-card reveal">
+      <div class="service-num">N°01</div>
+      <h3 class="service-name">Wedding Gowns</h3>
+      <p class="service-desc">Bustles, hems, bodice take-ins, sleeve adjustments, custom bustles. Multi-fitting service, finished by hand.</p>
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19L19 5M19 5H8M19 5V16"/></svg>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">N°02</div>
+      <h3 class="service-name">Suits & Tuxedos</h3>
+      <p class="service-desc">Sleeve length, waist suppression, trouser hems, jacket tapering. Full menswear tailoring with fast turnaround.</p>
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19L19 5M19 5H8M19 5V16"/></svg>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">N°03</div>
+      <h3 class="service-name">Formal & Bridesmaids</h3>
+      <p class="service-desc">Prom, gala, bridesmaid, and mother-of-the-bride dresses — straps, hems, take-ins, and emergency last-minute work.</p>
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19L19 5M19 5H8M19 5V16"/></svg>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">N°04</div>
+      <h3 class="service-name">Dresses & Skirts</h3>
+      <p class="service-desc">Hemming, taking in, letting out, zipper repair or replacement, lining repair. Everyday clothes, finished properly.</p>
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19L19 5M19 5H8M19 5V16"/></svg>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">N°05</div>
+      <h3 class="service-name">Pants, Jeans & Trousers</h3>
+      <p class="service-desc">Hems with original cuff preserved, tapering, waist adjustments, denim-specific stitching. Often same-day.</p>
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19L19 5M19 5H8M19 5V16"/></svg>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">N°06</div>
+      <h3 class="service-name">Shirts & Blouses</h3>
+      <p class="service-desc">Sleeve shortening, side seam tapering, collar repair, button replacement. Crisp, clean, invisible finishing.</p>
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19L19 5M19 5H8M19 5V16"/></svg>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">N°07</div>
+      <h3 class="service-name">Outerwear & Coats</h3>
+      <p class="service-desc">Heavy wool coats, lined jackets, complex finished sleeves with buttons. The hardest jobs done invisibly.</p>
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19L19 5M19 5H8M19 5V16"/></svg>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">N°08</div>
+      <h3 class="service-name">Leatherwear</h3>
+      <p class="service-desc">Leather jackets, pants, and accessories. Specialist stitching, careful seam work, repairs that don't show.</p>
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19L19 5M19 5H8M19 5V16"/></svg>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">N°09</div>
+      <h3 class="service-name">Uniforms & Repairs</h3>
+      <p class="service-desc">Service uniforms, scrubs, work clothes. Patches, mending, full repair — keep the garments you depend on.</p>
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19L19 5M19 5H8M19 5V16"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BIG DAY ================= -->
+<section class="bigday section-pad" id="bigday">
+  <div class="bigday-grid">
+    <div class="bigday-visual reveal">
+      <div class="bigday-tag">
+        <div class="roman">N°II</div>
+        <div class="lbl">The Atelier Edit</div>
+      </div>
+      <svg viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="suit" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#3a342d"/>
+            <stop offset="100%" stop-color="#1a1815"/>
+          </linearGradient>
+        </defs>
+        <!-- jacket -->
+        <path d="M 60 50 L 140 50 L 150 90 L 160 220 L 40 220 L 50 90 Z" fill="url(#suit)" stroke="#a8895c" stroke-width="0.4"/>
+        <!-- lapels -->
+        <path d="M 100 50 L 80 90 L 100 130 L 100 50 Z" fill="#1a1815" stroke="#a8895c" stroke-width="0.3" opacity="0.95"/>
+        <path d="M 100 50 L 120 90 L 100 130 L 100 50 Z" fill="#1a1815" stroke="#a8895c" stroke-width="0.3" opacity="0.95"/>
+        <!-- center seam -->
+        <line x1="100" y1="130" x2="100" y2="220" stroke="#a8895c" stroke-width="0.3" opacity="0.5"/>
+        <!-- buttons -->
+        <circle cx="100" cy="135" r="2" fill="#a8895c"/>
+        <circle cx="100" cy="155" r="2" fill="#a8895c"/>
+        <circle cx="100" cy="175" r="2" fill="#a8895c"/>
+        <!-- pocket squares -->
+        <line x1="68" y1="115" x2="86" y2="115" stroke="#faf6ef" stroke-width="0.6"/>
+        <!-- shoulders -->
+        <line x1="60" y1="50" x2="50" y2="90" stroke="#a8895c" stroke-width="0.4"/>
+        <line x1="140" y1="50" x2="150" y2="90" stroke="#a8895c" stroke-width="0.4"/>
+      </svg>
+    </div>
+
+    <div class="bigday-text reveal">
+      <div class="section-eyebrow">For The Big Day</div>
+      <h2>Weddings, formals,<br><em>once-in-a-lifetime moments.</em></h2>
+      <p>You spent months finding the dress. The suit. The fit you couldn't stop thinking about. We make sure it lives up to that moment — and that you can move, sit, dance, breathe in it.</p>
+      <ul class="bigday-list">
+        <li>Bridal Gowns <small>Multi-Fitting</small></li>
+        <li>Bustles & Trains <small>Custom-Tied</small></li>
+        <li>Bridesmaid Sets <small>Group Pricing</small></li>
+        <li>Tuxedos & Suits <small>Same-Week</small></li>
+        <li>Mother-of-the-Bride <small>Same-Week</small></li>
+        <li>Same-Day & Emergency <small>By Availability</small></li>
+      </ul>
+      <a href="#visit" class="btn-primary">Reserve a Fitting</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="process section-pad">
+  <div class="section-head reveal">
+    <div class="section-eyebrow">How It Works</div>
+    <h2 class="section-title">No appointment.<br><em>No mystery pricing.</em></h2>
+    <p class="section-sub">Walk in any day of the week. We'll show you exactly what's possible — and exactly what it costs — before you decide a thing.</p>
+  </div>
+  <div class="process-grid">
+    <div class="step reveal">
+      <div class="step-num">01</div>
+      <h4>Walk In</h4>
+      <p>No booking required. Bring the garment and any shoes or undergarments you'll wear with it.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">02</div>
+      <h4>Free Fitting</h4>
+      <p>Try it on. We'll pin, mark, and show you exactly how the finished piece will sit on you.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">03</div>
+      <h4>Honest Quote</h4>
+      <p>Clear, written pricing before any work begins. No surprises when you come back.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">04</div>
+      <h4>Pick Up</h4>
+      <p>Most jobs in days, not weeks. Same-day available for true emergencies.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="testimonials section-pad" id="testimonials">
+  <div class="section-head reveal">
+    <div class="section-eyebrow">Customer Praise</div>
+    <h2 class="section-title">Quietly devoted.<br><em>Loudly recommended.</em></h2>
+    <p class="section-sub">Twenty years of fits, fixes, and last-minute saves — kept by people who trust us with the clothes that matter most.</p>
+  </div>
+
+  <div class="review-grid">
+    <div class="review reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">High quality work, friendly service. I get all my pants hemmed and tapered and have brought suits here too. My favorite tailor — she's learned my preferences and even calls if someone else takes my measurements.</p>
+      <div class="review-meta">
+        <div class="review-avatar">J</div>
+        <div class="review-info">
+          <strong>Jeremy K.</strong>
+          Loyal customer · Multiple visits
+        </div>
+        <div class="review-source">Google</div>
+      </div>
+    </div>
+
+    <div class="review reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">My dress for my sister-in-law's wedding was delayed, so I couldn't bring it in until two days before our flight. They got it done overnight. The fit is PERFECT. So happy to have a trustworthy local professional.</p>
+      <div class="review-meta">
+        <div class="review-avatar">S</div>
+        <div class="review-info">
+          <strong>Sarah M.</strong>
+          Wedding fitting · Rush job
+        </div>
+        <div class="review-source">Google</div>
+      </div>
+    </div>
+
+    <div class="review reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">A treasured blouse that had a hole in it. After taking it to multiple places and debating about an embroidered patch, I took it to Stitch Awesome. Ha and Loc did an incredible job — the fix is barely perceptible.</p>
+      <div class="review-meta">
+        <div class="review-avatar">M</div>
+        <div class="review-info">
+          <strong>Michael R.</strong>
+          Garment repair
+        </div>
+        <div class="review-source">Google</div>
+      </div>
+    </div>
+
+    <div class="review reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Brought in a heavy wool coat to get the sleeves shortened. Complicated job because of the finished cuffs and buttons. They did a great job — looks like it never had an alteration. You pay for experience and it shows.</p>
+      <div class="review-meta">
+        <div class="review-avatar">M</div>
+        <div class="review-info">
+          <strong>Margaret M.</strong>
+          Outerwear · Wool coat
+        </div>
+        <div class="review-source">Yelp</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VISIT ================= -->
+<section class="visit section-pad" id="visit">
+  <div class="section-head reveal">
+    <div class="section-eyebrow">Visit The Atelier</div>
+    <h2 class="section-title">Find us inside<br><em>Ridgedale Center.</em></h2>
+  </div>
+
+  <div class="visit-grid">
+    <div class="visit-info reveal">
+      <h3>Stitch Awesome</h3>
+      <div class="ridgedale">Ridgedale Center · Suite 1270 · Adjacent to Chipotle</div>
+
+      <div class="visit-block">
+        <div class="label">Address</div>
+        <div class="content">
+          12401 Wayzata Blvd, Ste 1270<br>
+          Minnetonka, MN 55305<br>
+          <a href="https://maps.google.com/?q=12401+Wayzata+Blvd+Suite+1270+Minnetonka+MN" target="_blank" rel="noopener">Get Directions →</a>
+        </div>
+      </div>
+
+      <div class="visit-block">
+        <div class="label">Contact</div>
+        <div class="content">
+          <a href="tel:9522459400">(952) 245-9400</a><br>
+          <span style="opacity:0.7;font-size:14px">Walk-ins welcome · No appointment needed</span>
+        </div>
+      </div>
+
+      <div class="visit-block">
+        <div class="label">Hours</div>
+        <div class="content">
+          <div class="day"><span>Monday</span><span>11:00 AM — 8:00 PM</span></div>
+          <div class="day"><span>Tuesday</span><span>11:00 AM — 8:00 PM</span></div>
+          <div class="day"><span>Wednesday</span><span>11:00 AM — 8:00 PM</span></div>
+          <div class="day"><span>Thursday</span><span>11:00 AM — 8:00 PM</span></div>
+          <div class="day"><span>Friday</span><span>11:00 AM — 8:00 PM</span></div>
+          <div class="day"><span>Saturday</span><span>11:00 AM — 8:00 PM</span></div>
+          <div class="day"><span>Sunday</span><span>11:00 AM — 6:00 PM</span></div>
+        </div>
+      </div>
+
+      <div class="visit-block">
+        <div class="label">Also At</div>
+        <div class="content">
+          Rosedale Center · Roseville, MN<br>
+          <span style="opacity:0.7;font-size:14px">Sister location, same craft.</span>
+        </div>
+      </div>
+
+      <div class="visit-cta">
+        <p>Walk in today.<br>Free fitting. Honest quote.</p>
+        <a href="tel:9522459400" class="btn-primary">Call (952) 245-9400</a>
+      </div>
+    </div>
+
+    <div class="map-frame reveal">
+      <div class="map-grid"></div>
+      <div class="map-roads"></div>
+      <div class="map-pin">
+        <div class="pin-label">Stitch Awesome</div>
+        <div class="pin-dot"></div>
+      </div>
+      <div class="map-corner">Ridgedale Center · Minnetonka, MN</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Stitch <span>Awesome</span></div>
+      <p class="footer-tagline">"Pinned, pressed, and finished by hand. Twenty years of master tailoring inside Ridgedale Center."</p>
+    </div>
+    <div class="footer-col">
+      <h5>Visit</h5>
+      <ul>
+        <li>12401 Wayzata Blvd</li>
+        <li>Suite 1270</li>
+        <li>Minnetonka, MN 55305</li>
+        <li><a href="tel:9522459400">(952) 245-9400</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Specialties</h5>
+      <ul>
+        <li><a href="#bigday">Wedding Gowns</a></li>
+        <li><a href="#services">Suits & Tuxedos</a></li>
+        <li><a href="#services">Formalwear</a></li>
+        <li><a href="#services">Same-Day Service</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© Stitch Awesome · Master Tailoring</span>
+    <span>Ridgedale Center · Rosedale Center</span>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Highlight today's hours
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const today = days[new Date().getDay()];
+  document.querySelectorAll('.day').forEach(d => {
+    if (d.querySelector('span').textContent.trim() === today) {
+      d.classList.add('today');
+    }
+  });
+</script>
+
+</body>
+</html>
